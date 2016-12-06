@@ -1,0 +1,42 @@
+[user]
+	email = dixon.cheung@indexexchange.com
+	name = Dixon Cheung
+[core]
+	compression = 0
+[merge]
+	commit = no
+	ff = no
+[color]
+	ui = true
+[alias]
+	br = branch
+	##################
+	c = commit
+	ca = commit -a
+	cm = commit --amend
+	##################
+	co = checkout
+	co- = checkout --
+	##################
+	d = diff
+	ds = diff -staged
+	##################
+	f = fetch
+	find = ls-files
+	##################
+	ls = log --name-only
+	lo = log --oneline
+	##################
+	pu = push
+	##################
+	pl = pull --rebase
+	##################
+	r = reset HEAD
+	rh = reset --hard
+	rs = reset --soft
+	##################
+	s = status -s -b
+	##################
+	st = stash
+	sp = stash pop
+
