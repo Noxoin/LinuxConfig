@@ -67,18 +67,8 @@ export CLICOLOR=1
 
 # MacPorts Installer addition on 2016-07-15_at_12:34:34: adding an appropriate PATH variable for use with MacPorts.
 export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+
 # Finished adapting your PATH environment variable for use with MacPorts.
-
-alias viper2_dumper='mysql Viper2_dumper -h 10.5.80.207 -u viper -p'
-
-# Setup for platform test enviroment
-export APP_IP=10.5.30.1
-export DB_IP=10.5.30.7
-export GUIAPP_IP=10.5.30.5
-export AS_IP=10.5.30.10
-export SCRAPER_HOST=10.5.30.7
-export IX_HOSTNAME=as.indexexchange.com
-
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 asc () {
@@ -114,16 +104,3 @@ fi
 # Setup Fuck program
 eval "$(thefuck --alias)"
 
-export GOPATH=/Users/dixon.cheung/personal/golang
-
-export REMOTE_IP_1=10.5.30.10
-export REMOTE_IP_2=10.5.24.20
-export DCAPP_1_HOSTNAME=dcapp001.casalemedia.com
-export DCAPP_2_HOSTNAME=dcapp002.casalemedia.com
-export DCAPP_3_HOSTNAME=dcapp003.casalemedia.com
-export AS_1_HOSTNAME=a901.casalemedia.com
-export AS_2_HOSTNAME=a902.casalemedia.com
-export AS_3_HOSTNAME=a903.casalemedia.com
-
-export GOPATH=$HOME/go
-export PATH=$PATH:$(go env GOPATH)/bin
