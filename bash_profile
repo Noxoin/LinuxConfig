@@ -71,32 +71,6 @@ export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 # Finished adapting your PATH environment variable for use with MacPorts.
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
-asc () {
-	FILENAME=/Users/dixon.cheung/test_outputs/`date '+%Y-%m-%d-%H-%M'`
-	touch $FILENAME
-	ln -sfn $FILENAME /Users/dixon.cheung/test_outputs/latest
-	perl asc.t $@ 2>&1 | ( trap '' 2;
-	FILENAME=/Users/dixon.cheung/test_outputs/`date '+%Y-%m-%d-%H-%M'`;
-	tee -a $FILENAME | csuite.pl )
-}
-
-#_alarm() {
-#	if [[ "x$1" -eq "x" ]]; then
-#			freq=400
-#	else
-#			freq=$1
-#	fi
-#	if [[ "x$2" -eq "x" ]]; then
-#			dur=400
-#	else
-#			dur=$2
-#	fi
-#	( \speaker-test --frequency $freq --test sine 2&>1 >/dev/null)&
-#	pid=$!
-#	\sleep 0.${dur}s
-#	\kill -9 $pid
-#}
-
 if [ -f ~/.git-completion.bash ]; then
 . ~/.git-completion.bash
 fi

@@ -53,22 +53,22 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
-if [ "$color_prompt" = yes ]; then
-    PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-else
-    PS1='\u@\h:\w\$ '
-fi
-unset color_prompt force_color_prompt
-
-# If this is an xterm set the title to user@host:dir
-case "$TERM" in
-xterm*|rxvt*)
-#    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-    PS1='> '
-    ;;
-*)
-    ;;
-esac
+# if [ "$color_prompt" = yes ]; then
+#     PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+# else
+#     PS1='\u@\h:\w\$ '
+# fi
+# unset color_prompt force_color_prompt
+# 
+# # If this is an xterm set the title to user@host:dir
+# case "$TERM" in
+# xterm*|rxvt*)
+# #    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+#     PS1='> '
+#     ;;
+# *)
+#     ;;
+# esac
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
@@ -111,6 +111,54 @@ export VISUAL=vim
 export EDITOR=vim
 #export MANPATH=/usr/local/man:/usr/local/share/man:/usr/share/man:/export/home/dcheung/web/docs/man
 set -o vi
+
+## Colors?  Used for the prompt.
+#Regular text color
+BLACK='\[\e[0;30m\]'
+#Bold text color
+BBLACK='\[\e[1;30m\]'
+#background color
+BGBLACK='\[\e[40m\]'
+RED='\[\e[0;31m\]'
+BRED='\[\e[1;31m\]'
+BGRED='\[\e[41m\]'
+GREEN='\[\e[0;32m\]'
+BGREEN='\[\e[1;32m\]'
+BGGREEN='\[\e[1;32m\]'
+YELLOW='\[\e[0;33m\]'
+BYELLOW='\[\e[1;33m\]'
+BGYELLOW='\[\e[1;33m\]'
+BLUE='\[\e[0;34m\]'
+BBLUE='\[\e[1;34m\]'
+BGBLUE='\[\e[1;34m\]'
+MAGENTA='\[\e[0;35m\]'
+BMAGENTA='\[\e[1;35m\]'
+BGMAGENTA='\[\e[1;35m\]'
+CYAN='\[\e[0;36m\]'
+BCYAN='\[\e[1;36m\]'
+BGCYAN='\[\e[1;36m\]'
+WHITE='\[\e[0;37m\]'
+BWHITE='\[\e[1;37m\]'
+BGWHITE='\[\e[1;37m\]'
+#Default Colour
+DF='\[\e[0m\]'
+
+# Generate PS1
+export PROMPT_COMMAND=generate_prompt
+function generate_prompt()
+{
+    if [ "$?" -eq "0" ]
+    then
+        EMOT="${BGREEN}(^o^)"
+    else
+        EMOT="${BRED}(>_<)\a"
+    fi
+    PS1="${BBLUE}\t ${EMOT} ${DF}>> "
+}
+
+# Ignore Ctrl-D logout signal
+set -o ignoreeof
+export IGNOREEOF=42
 
 PERL_MB_OPT="--install_base \"/home/noxoin/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/noxoin/perl5"; export PERL_MM_OPT;
