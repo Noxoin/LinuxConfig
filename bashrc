@@ -159,6 +159,3 @@ function generate_prompt()
 # Ignore Ctrl-D logout signal
 set -o ignoreeof
 export IGNOREEOF=42
-
-PERL_MB_OPT="--install_base \"/home/noxoin/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/home/noxoin/perl5"; export PERL_MM_OPT;
